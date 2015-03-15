@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>3ED26D47-C512-420D-BB2F-AB076B6E56FE</string>
+	<key>IDESourceControlProjectName</key>
+	<string>BlueListener</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>20696182CA24757CF48276C8D2C564BA6127895E</key>
+		<string>https://github.com/melbrng/melrepo.git</string>
+		<key>21CA6046892A718AB791CFFE64C0C69FA00C5992</key>
+		<string>https://github.com/melbrng/BlueListener.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>BlueListener/BlueListener.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>20696182CA24757CF48276C8D2C564BA6127895E</key>
+		<string>../../../..</string>
+		<key>21CA6046892A718AB791CFFE64C0C69FA00C5992</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/melbrng/BlueListener.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>21CA6046892A718AB791CFFE64C0C69FA00C5992</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>20696182CA24757CF48276C8D2C564BA6127895E</string>
+			<key>IDESourceControlWCCName</key>
+			<string></string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>21CA6046892A718AB791CFFE64C0C69FA00C5992</string>
+			<key>IDESourceControlWCCName</key>
+			<string>BlueListener</string>
+		</dict>
+	</array>
+</dict>
+</plist>
