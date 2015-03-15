@@ -168,6 +168,7 @@
 				TargetAttributes = {
 					43082FA61AB6316B00AF620A = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = WFBXYH99LH;
 					};
 					43082FBF1AB6316B00AF620A = {
 						CreatedOnToolsVersion = 6.2;
@@ -335,7 +336,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = BlueListener/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -345,7 +348,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = BlueListener/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -404,6 +409,7 @@
 				43082FCC1AB6316B00AF620A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		43082FCD1AB6316B00AF620A /* Build configuration list for PBXNativeTarget "BlueListenerTests" */ = {
 			isa = XCConfigurationList;
@@ -412,6 +418,7 @@
 				43082FCF1AB6316B00AF620A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
