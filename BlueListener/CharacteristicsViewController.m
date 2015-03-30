@@ -11,7 +11,8 @@
 @interface CharacteristicsViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *characteristicTableView;
 - (IBAction)doneButton:(id)sender;
-@property (weak, nonatomic) IBOutlet UINavigationBar *charNavBar;
+@property (weak, nonatomic) IBOutlet UINavigationItem *charNavigation;
+
 
 @end
 
@@ -19,6 +20,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.characteristicArray = self.foundService.serviceCharacteristics;
+    NSString *titleString = [NSString stringWithFormat:@"%@ Characteristics",self.foundService.serviceUUIDString];
+    self.charNavigation.title = titleString;
 
 }
 

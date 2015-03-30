@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreBluetooth/CoreBluetooth.h>
+#import "FoundServices.h"
 
 @interface CharacteristicsViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,UINavigationBarDelegate>
 @property (nonatomic,strong) NSMutableArray *characteristicArray;
+@property (nonatomic,strong) FoundServices *foundService;
 
 @end

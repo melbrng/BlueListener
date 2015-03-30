@@ -135,7 +135,6 @@ BOOL peripheralFound = NO;
         [self.myCentralManager scanForPeripheralsWithServices:nil options:nil];
     }
     
-    NSLog(@"%hhd",peripheralFound);
     if(peripheralFound == NO){
         self.serviceNavigation.title = @"No Peripheral Found";
     }
@@ -192,10 +191,8 @@ BOOL peripheralFound = NO;
 
      NSIndexPath *indexPath = [self.serviceTableView indexPathForSelectedRow];     
      FoundServices *foundService = [self.services objectAtIndex:indexPath.row];
-     self.characteristicVCArray= foundService.serviceCharacteristics;
 
-     [[segue destinationViewController] setCharacteristicArray:self.characteristicVCArray];
-
+     [[segue destinationViewController] setFoundService:foundService];
 
  }
  

@@ -129,7 +129,7 @@
                                 <rect key="frame" x="0.0" y="17" width="320" height="44"/>
                                 <color key="barTintColor" red="0.2901960784" green="0.56470588239999997" blue="0.8862745098" alpha="1" colorSpace="deviceRGB"/>
                                 <items>
-                                    <navigationItem title="Characteristics" id="oJD-1k-xkZ">
+                                    <navigationItem id="oJD-1k-xkZ">
                                         <barButtonItem key="leftBarButtonItem" systemItem="done" id="h0t-hH-2rr">
                                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
@@ -155,7 +155,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="yeD-Hd-47q"/>
                     <connections>
-                        <outlet property="charNavBar" destination="hEv-7w-42T" id="IpU-Zk-4Tr"/>
+                        <outlet property="charNavigation" destination="oJD-1k-xkZ" id="Qqq-Jq-Wtl"/>
                         <outlet property="characteristicTableView" destination="iff-RJ-sQZ" id="vYc-is-f5l"/>
                     </connections>
                 </viewController>
