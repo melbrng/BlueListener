@@ -9,12 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <CoreBluetooth/CoreBluetooth.h>
 
-@interface ViewController : UIViewController <CBCentralManagerDelegate, CBPeripheralDelegate, UITextViewDelegate>
+@interface ViewController : UIViewController <CBCentralManagerDelegate, CBPeripheralDelegate, UITextViewDelegate, UITableViewDataSource, UITableViewDelegate>
 
-- (IBAction)startScan:(UIButton *)sender;
-- (IBAction)clearOutput:(id)sender;
 
-@property (strong, nonatomic) IBOutlet UITextView *scanTextView;
 
 
 @end

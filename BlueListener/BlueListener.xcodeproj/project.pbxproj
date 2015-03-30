@@ -14,6 +14,8 @@
 		43082FBB1AB6316B00AF620A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 43082FB91AB6316B00AF620A /* LaunchScreen.xib */; };
 		43082FC71AB6316B00AF620A /* BlueListenerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 43082FC61AB6316B00AF620A /* BlueListenerTests.m */; };
 		43082FD11AB6324400AF620A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43082FD01AB6324400AF620A /* Main.storyboard */; };
+		4315BDF21AC4E25D007EC20B /* CharacteristicsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4315BDF11AC4E25D007EC20B /* CharacteristicsViewController.m */; };
+		439D45911AC8C321006B5D2F /* FoundServices.m in Sources */ = {isa = PBXBuildFile; fileRef = 439D45901AC8C321006B5D2F /* FoundServices.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,10 @@
 		43082FC51AB6316B00AF620A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		43082FC61AB6316B00AF620A /* BlueListenerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlueListenerTests.m; sourceTree = "<group>"; };
 		43082FD01AB6324400AF620A /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		4315BDF01AC4E25D007EC20B /* CharacteristicsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CharacteristicsViewController.h; path = ../CharacteristicsViewController.h; sourceTree = "<group>"; };
+		4315BDF11AC4E25D007EC20B /* CharacteristicsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CharacteristicsViewController.m; path = ../CharacteristicsViewController.m; sourceTree = "<group>"; };
+		439D458F1AC8C321006B5D2F /* FoundServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoundServices.h; sourceTree = "<group>"; };
+		439D45901AC8C321006B5D2F /* FoundServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoundServices.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +92,10 @@
 				43082FAF1AB6316B00AF620A /* AppDelegate.m */,
 				43082FB11AB6316B00AF620A /* ViewController.h */,
 				43082FB21AB6316B00AF620A /* ViewController.m */,
+				4315BDF01AC4E25D007EC20B /* CharacteristicsViewController.h */,
+				4315BDF11AC4E25D007EC20B /* CharacteristicsViewController.m */,
+				439D458F1AC8C321006B5D2F /* FoundServices.h */,
+				439D45901AC8C321006B5D2F /* FoundServices.m */,
 				43082FB71AB6316B00AF620A /* Images.xcassets */,
 				43082FB91AB6316B00AF620A /* LaunchScreen.xib */,
 				43082FAA1AB6316B00AF620A /* Supporting Files */,
@@ -221,8 +231,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				43082FB31AB6316B00AF620A /* ViewController.m in Sources */,
+				4315BDF21AC4E25D007EC20B /* CharacteristicsViewController.m in Sources */,
 				43082FB01AB6316B00AF620A /* AppDelegate.m in Sources */,
 				43082FAD1AB6316B00AF620A /* main.m in Sources */,
+				439D45911AC8C321006B5D2F /* FoundServices.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,6 +364,7 @@
 				INFOPLIST_FILE = BlueListener/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
