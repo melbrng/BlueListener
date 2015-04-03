@@ -18,11 +18,21 @@
 
 @implementation CharacteristicsViewController
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.characteristicArray = self.foundService.serviceCharacteristics;
-    NSString *titleString = [NSString stringWithFormat:@"%@ Characteristics",self.foundService.serviceUUIDString];
-    self.charNavigation.title = titleString;
+    
+    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0.0, 0.0, 320.0, 44.0)];
+    [label setBackgroundColor:[UIColor clearColor]];
+    [label setNumberOfLines:0];
+    [label setTextColor:[UIColor blackColor]];
+    [label setTextAlignment:NSTextAlignmentCenter];
+    [label setAdjustsFontSizeToFitWidth:true];
+    [label setMinimumScaleFactor:12.0];
+    [label setText:[NSString stringWithFormat:@"Characteristics for %@",self.foundService.serviceUUIDString]];
+
+    self.charNavigation.titleView = label;
 
 }
 

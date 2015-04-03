@@ -13,7 +13,6 @@
 @interface ViewController ()
 @property (nonatomic,strong) CBCentralManager *myCentralManager;
 @property (nonatomic,strong) CBPeripheral *myPeripheral;
-@property (nonatomic,strong) NSMutableString *textString;
 @property (nonatomic,strong) NSMutableArray *characteristics;
 @property (nonatomic,strong) NSMutableArray *services;
 @property (weak, nonatomic) IBOutlet UITableView *serviceTableView;
@@ -21,19 +20,36 @@
 @property (nonatomic,strong) NSMutableArray *characteristicVCArray;
 @property (weak, nonatomic) IBOutlet UINavigationItem *serviceNavigation;
 @property (nonatomic,strong)FoundServices *foundServices;
+@property (nonatomic,strong)UILabel *viewLabel;
 
 - (IBAction)start:(id)sender;
 - (IBAction)clearOutput:(id)sender;
+-(void)stopListening:(NSTimer *)aTimer;
+
 @end
 
-@implementation ViewController
-NSString *  const PAFontName = @"AppleSDGothicNeo-Regular";
+@implementation ViewController{
+    NSTimer *aTimer;
+}
+
+
 BOOL peripheralFound = NO;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+     self.viewLabel= [[UILabel alloc]initWithFrame:CGRectMake(0.0, 0.0, 320.0, 44.0)];
+    [self.viewLabel setBackgroundColor:[UIColor clearColor]];
+    [self.viewLabel setNumberOfLines:0];
+    [self.viewLabel setTextColor:[UIColor blackColor]];
+    [self.viewLabel setTextAlignment:NSTextAlignmentCenter];
+    [self.viewLabel setAdjustsFontSizeToFitWidth:true];
+    [self.viewLabel setMinimumScaleFactor:12.0];
 
+    self.serviceNavigation.titleView = self.viewLabel;
+
+    
     self.myCentralManager = [[CBCentralManager alloc] initWithDelegate:self queue:nil options:nil];
     
     self.navigationController.navigationBar.barTintColor=[UIColor colorWithRed:76.0f/255.0f green:133.0f/255.0f blue:218.0f/255.0f alpha:1.0f] ;
@@ -46,8 +62,8 @@ BOOL peripheralFound = NO;
 -(void)centralManagerDidUpdateState:(CBCentralManager *)central{
     
     if(central.state == CBCentralManagerStatePoweredOn){
-        
-        self.textString = [NSMutableString stringWithString:@"Click \"Start Scan\" to begin!\r"];
+        [self.viewLabel setText:@"Click Start to Listen"];
+        self.serviceNavigation.titleView = self.viewLabel;
 
     }
    
@@ -57,21 +73,21 @@ BOOL peripheralFound = NO;
 -(void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral
     advertisementData:(NSDictionary *)advertisementData
                  RSSI:(NSNumber *)RSSI{
-    
-    self.myPeripheral = peripheral;
-    
-    [self.textString setString:[NSString stringWithFormat:@"Peripheral %@",self.myPeripheral.name]];
-    self.serviceNavigation.title = self.textString;
 
-    [self.myCentralManager connectPeripheral:self.myPeripheral options:nil];
-    [self.myCentralManager stopScan];
-    peripheralFound = YES;
+    
+        self.myPeripheral = peripheral;
+
+        [self.viewLabel setText:[NSString stringWithFormat:@"Services for %@",self.myPeripheral.name]];
+ 
+        self.serviceNavigation.titleView = self.viewLabel;
+
+        [self.myCentralManager connectPeripheral:self.myPeripheral options:nil];
+        [self.myCentralManager stopScan];
+        peripheralFound = YES;
 
     
 }
--(void)centralManager:(CBCentralManager *)central didDisconnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error{
-    NSLog(@"did disconnect");
-}
+
 
 -(void)centralManager:(CBCentralManager *)central didConnectPeripheral:(CBPeripheral *)peripheral{
     
@@ -82,7 +98,9 @@ BOOL peripheralFound = NO;
 
 -(void)centralManager:(CBCentralManager *)central didFailToConnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error{
     
-    self.serviceNavigation.title  = self.textString;
+        [self.viewLabel setText:@"Failed to Connect"];
+        self.serviceNavigation.titleView = self.viewLabel;
+   
     
 }
 
@@ -91,7 +109,6 @@ BOOL peripheralFound = NO;
 - (void)peripheral:(CBPeripheral *)peripheral didDiscoverServices:(NSError *)error
 {
     self.services = [[NSMutableArray alloc]init];
-
 
     for (CBService *service in self.myPeripheral.services) {
 
@@ -128,28 +145,47 @@ BOOL peripheralFound = NO;
     
 }
 
-- (IBAction)start:(id)sender {
-
+-(void)stopListening:(NSTimer *)aTimer{
     
+    
+    if(peripheralFound == NO){
+        [self.viewLabel setText:@"No Peripherals Found"];
+        self.serviceNavigation.titleView = self.viewLabel;
+        [self.myCentralManager stopScan];
+    }
+
+}
+
+- (IBAction)start:(id)sender {
+    
+    [self.viewLabel setText:@"Listening...."];
+    self.serviceNavigation.titleView = self.viewLabel;
+
     if(self.myCentralManager.state == CBCentralManagerStatePoweredOn){
         [self.myCentralManager scanForPeripheralsWithServices:nil options:nil];
     }
     
-    if(peripheralFound == NO){
-        self.serviceNavigation.title = @"No Peripheral Found";
-    }
+    aTimer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(stopListening:) userInfo:nil repeats:NO];
+
+
 }
 
 
 - (IBAction)clearOutput:(id)sender {
     
-    self.serviceNavigation.title = @"Services";
+    
+    [self.viewLabel setText:@"Click Start to Listen"];
+    self.serviceNavigation.titleView = self.viewLabel;
     
     if(peripheralFound == YES){
         [self.myCentralManager cancelPeripheralConnection:self.myPeripheral];
         
         self.services = [[NSMutableArray alloc]init];
         [self.serviceTableView reloadData];
+        
+        [self.myCentralManager stopScan];
+        peripheralFound=NO;
+        
     }
     
 }
